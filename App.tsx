@@ -8,7 +8,7 @@ import { searchLibraries, fetchCityBoundary } from './services/libraryService';
 import { Library, GeoJson } from './types';
 
 function App() {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'night');
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
   const [libraries, setLibraries] = useState<Library[]>([]);
   const [selectedLibrary, setSelectedLibrary] = useState<Library | null>(null);
   const [geoJsonData, setGeoJsonData] = useState<GeoJson | null>(null);
@@ -22,7 +22,7 @@ function App() {
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'night' ? 'light' : 'night');
+    setTheme(prevTheme => prevTheme === 'dark' ? 'light' : 'dark');
   };
 
   const handleSearch = useCallback(async (query: string) => {

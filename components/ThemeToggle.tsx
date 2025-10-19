@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface ThemeToggleProps {
@@ -13,7 +12,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ theme, toggleTheme }) => {
       <input
         type="checkbox"
         onChange={toggleTheme}
-        checked={theme === 'night'}
+        checked={theme === 'dark'}
       />
 
       {/* Sun icon (for dark mode) */}
