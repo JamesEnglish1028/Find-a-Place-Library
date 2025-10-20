@@ -14,6 +14,7 @@ const SEARCH_FIELDS = [
   { label: 'Zip', value: 'zip' },
   { label: 'County', value: 'county' },
   { label: 'Status', value: 'status' },
+  { label: 'Type', value: 'type' },
 ];
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch, isLoading }) => {

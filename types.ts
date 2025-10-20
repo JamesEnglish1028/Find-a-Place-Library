@@ -5,6 +5,7 @@ export interface Library {
   state: string;
   status: string;
   cm_url: string;
+  type?: string;
 }
 
 export interface LibraryLocation {
@@ -14,6 +15,7 @@ export interface LibraryLocation {
   city: string;
   zip: string;
   county: string;
+  type?: string;
 }
 
 export interface RichLibrary extends Library, LibraryLocation {}

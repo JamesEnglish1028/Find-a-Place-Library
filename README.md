@@ -33,6 +33,14 @@ View your app in AI Studio: https://ai.studio/apps/drive/1mCNEoTbtstzcyCGxM0el8F
 2. Enter your search term and press 'Search'.
 3. Results will be filtered by the selected field.
 
+## Map Overlay Logic
+
+- The app now uses the state abbreviation (`stabbr`) and the library `type` to determine which GeoJSON overlay to load for the map.
+- For city libraries, the overlay is loaded from `/cities/{stabbr}/{city}.json` (city name is lowercased, spaces replaced with hyphens).
+- For state libraries (type = "State"), the overlay is loaded from `/states/{stabbr}.json`.
+- The search bar allows searching by all major fields, including library type.
+- The codebase now uses the `RichLibrary` type throughout for correct data access and overlay logic.
+
 ---
 
 Other features and setup remain unchanged.

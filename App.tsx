@@ -5,12 +5,13 @@ import Map from './components/Map';
 import ThemeToggle from './components/ThemeToggle';
 import PalaceLogo from './components/PalaceLogo';
 import { searchLibraries, fetchCityBoundary } from './services/libraryService';
-import { Library, GeoJson } from './types';
+import { RichLibrary, GeoJson } from './types';
 
 function App() {
+
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
-  const [libraries, setLibraries] = useState<Library[]>([]);
-  const [selectedLibrary, setSelectedLibrary] = useState<Library | null>(null);
+  const [libraries, setLibraries] = useState<RichLibrary[]>([]);
+  const [selectedLibrary, setSelectedLibrary] = useState<RichLibrary | null>(null);
   const [geoJsonData, setGeoJsonData] = useState<GeoJson | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -49,7 +50,7 @@ function App() {
     }
   }, []);
 
-  const handleSelectLibrary = useCallback(async (library: Library) => {
+  const handleSelectLibrary = useCallback(async (library: RichLibrary) => {
     if (selectedLibrary?.fscs_id === library.fscs_id) {
       // Deselect if clicking the same card again
       setSelectedLibrary(null);
@@ -63,7 +64,8 @@ function App() {
     setGeoJsonData(null); // Clear previous map data
 
     try {
-      const geoData = await fetchCityBoundary(library.city, library.state);
+      // Use stabbr (state abbreviation) and type for correct overlay
+      const geoData = await fetchCityBoundary(library.city, library.stabbr, library.type);
       setGeoJsonData(geoData);
     } catch (err) {
       if (err instanceof Error) {
