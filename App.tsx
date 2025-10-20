@@ -25,7 +25,7 @@ function App() {
     setTheme(prevTheme => prevTheme === 'dark' ? 'light' : 'dark');
   };
 
-  const handleSearch = useCallback(async (query: string) => {
+  const handleSearch = useCallback(async (query: string, field: string) => {
     if (!query) {
       setLibraries([]);
       setSelectedLibrary(null);
@@ -36,7 +36,7 @@ function App() {
     setIsLoading(true);
     setError(null);
     try {
-      const results = await searchLibraries(query);
+      const results = await searchLibraries(query, field);
       setLibraries(results);
       if (results.length === 0) {
         setError("No libraries found for your search.");
@@ -97,7 +97,7 @@ function App() {
             <p className="text-lg mt-2">Search for libraries by name, FSCS ID, state, or status.</p>
         </div>
 
-        <SearchBar onSearch={handleSearch} isLoading={isLoading} />
+  <SearchBar onSearch={handleSearch} isLoading={isLoading} />
         
         {error && <div className="alert alert-error mt-4">{error}</div>}
 

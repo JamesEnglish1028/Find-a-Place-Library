@@ -18,3 +18,21 @@ View your app in AI Studio: https://ai.studio/apps/drive/1mCNEoTbtstzcyCGxM0el8F
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Palace Library Finder
+
+### Search Functionality
+
+- The search bar now includes radio buttons to select which field to search by: Name, FSCS ID, State (Abbreviation), City, Zip, County, or Status.
+- When searching by State, enter the state abbreviation (e.g., CA, NY). The search will match only the abbreviation, not the full state name.
+- The search logic uses the selected field for partial matches, except for State, which uses exact abbreviation matching.
+
+### How to Use
+
+1. Select the field you want to search by using the radio buttons above the search input.
+2. Enter your search term and press 'Search'.
+3. Results will be filtered by the selected field.
+
+---
+
+Other features and setup remain unchanged.

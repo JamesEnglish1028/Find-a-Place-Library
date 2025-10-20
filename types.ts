@@ -1,4 +1,3 @@
-
 export interface Library {
   name: string;
   fscs_id: string;
@@ -7,6 +6,17 @@ export interface Library {
   status: string;
   cm_url: string;
 }
+
+export interface LibraryLocation {
+  fscs_id: string;
+  state: string; // Full state name
+  stabbr: string; // State abbreviation
+  city: string;
+  zip: string;
+  county: string;
+}
+
+export interface RichLibrary extends Library, LibraryLocation {}
 
 // Basic GeoJSON types for rendering the map
 export interface GeoJsonFeature {
