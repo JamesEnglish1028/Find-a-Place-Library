@@ -1,0 +1,5 @@
+{
+  "name": "Library Finder",
+  "description": "An application to search for libraries from a Notion table, view their details, and see their city boundaries on a map.",
+  "requestFramePermissions": []
+}
